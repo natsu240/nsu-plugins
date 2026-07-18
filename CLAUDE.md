@@ -5,7 +5,7 @@
 ## Gitワークフロー
 
 - **直コミットでOK**。個人リポジトリなのでブランチ・PRは不要、`main`に直接コミットする。
-- **コミットしたら必ずGitHub Tagリリースを切る。** コミットして終わりにしない。手順:
+- **コミット→push→タグ→リリースは常に1セット。都度ユーザーに確認を取らず自動でやる。** `plugins/<name>/`配下に変更が入るコミットなら、表記修正のような軽微な変更でも必ずversion bump・タグ・リリースまで実行する。「これもバージョン上げますか?」のように聞き返さないこと。手順:
   1. 該当プラグインの `plugins/<plugin-name>/.claude-plugin/plugin.json` の `version` をsemverで更新する(機能追加・修正内容に応じてpatch/minorを判断。破壊的変更はmajor)
   2. コミットを作成する(version bumpも同じコミットに含めてよい)
   3. `git push origin main` でmainブランチ自体をpushする(`claude plugin tag --push`はタグしかpushしないので、これを飛ばすとタグ・Releaseだけ進んでmainが取り残される)
