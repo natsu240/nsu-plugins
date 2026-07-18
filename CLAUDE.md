@@ -1,6 +1,8 @@
 # nsu-plugins
 
-個人用Claude Code設定(plugin: hooks/skills + dotfiles: settings.json/statusline.py)を配布するrepo。詳細は README.md 参照。
+個人用Claude Code設定(plugin: hooks/skills + dotfiles: settings.json/statusline.py)を配布するrepo。
+
+@README.md
 
 ## Gitワークフロー
 

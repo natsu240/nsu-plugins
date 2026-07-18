@@ -39,6 +39,15 @@ Claude Code内で:
 
 ローカルで試す場合はパスを直接指定してもよい: `/plugin marketplace add /path/to/nsu-plugins`
 
+CLIから直接操作することもできる(内部的には同じ処理):
+
+```bash
+claude plugin marketplace add natsu240/nsu-plugins
+claude plugin install common@nsu-plugins
+```
+
+`claude plugin --help` / `claude plugin marketplace --help` でサブコマンド一覧を確認できる。launchdなどの自動化スクリプトに組み込みたいときや、Remote Control経由のセッション(`/plugin`系スラッシュコマンドが使えない制約がある)から操作したいときはこちらを使う。
+
 ### 2. dotfiles部分(settings.json / statusline.py)
 
 ```bash
