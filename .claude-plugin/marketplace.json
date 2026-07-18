@@ -1,0 +1,17 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "nsu-plugins",
+  "description": "Personal Claude Code marketplace hosting nsu-claude-toolkit.",
+  "owner": {
+    "name": "nsu",
+    "email": "nsuh4442@gmail.com"
+  },
+  "plugins": [
+    {
+      "name": "nsu-claude-toolkit",
+      "description": "OTel usage/cost analysis skill + general-purpose subagent block hook.",
+      "source": "./",
+      "category": "productivity"
+    }
+  ]
+}

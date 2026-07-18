@@ -1,0 +1,11 @@
+{
+  "name": "nsu-claude-toolkit",
+  "version": "1.0.0",
+  "description": "Personal Claude Code plugin: OTel usage/cost analysis skill, and a hook that blocks the general-purpose subagent by local policy.",
+  "author": {
+    "name": "nsu",
+    "email": "nsuh4442@gmail.com"
+  },
+  "license": "MIT",
+  "keywords": ["opentelemetry", "duckdb", "cost-analysis", "hooks"]
+}
