@@ -10,7 +10,7 @@ if subagent_type == "general-purpose":
         "hookSpecificOutput": {
             "hookEventName": "PreToolUse",
             "permissionDecision": "deny",
-            "permissionDecisionReason": "general-purpose agent is blocked by local policy",
+            "permissionDecisionReason": "general-purposeエージェントはローカルポリシーによりブロックされています",
         }
     }))
 else:

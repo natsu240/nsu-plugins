@@ -1,7 +1,7 @@
 #!/bin/bash
-# Merge dotfiles/settings.json into ~/.claude/settings.json and link statusline.py.
-# Safe to re-run. Does NOT touch the plugin itself (install that via
-# `/plugin marketplace add <this repo path>` inside Claude Code, see README.md).
+# dotfiles/settings.json を ~/.claude/settings.json にマージし、statusline.py を配置する。
+# 何度実行しても安全。プラグイン本体には触れない(プラグインはClaude Code内で
+# `/plugin marketplace add <このrepoのpath>` して入れる。README.md参照)。
 set -euo pipefail
 
 REPO_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"

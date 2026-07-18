@@ -1,14 +1,14 @@
 {
   "name": "nsu-plugins",
-  "description": "Personal Claude Code plugin marketplace.",
+  "description": "個人用Claude Codeプラグインのマーケットプレイス。",
   "owner": {
     "name": "nsu"
   },
   "plugins": [
     {
-      "name": "nsu-claude-toolkit",
-      "description": "OTel usage/cost analysis skill + general-purpose subagent block hook.",
-      "source": "./plugins/nsu-claude-toolkit"
+      "name": "common",
+      "description": "OTelコスト/トークン分析スキル + general-purposeサブエージェントブロックhook。",
+      "source": "./plugins/common"
     }
   ]
 }
