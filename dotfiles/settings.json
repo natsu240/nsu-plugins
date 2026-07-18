@@ -48,6 +48,7 @@
     "refreshInterval": 1
   },
   "tui": "fullscreen",
+  "spinnerTipsEnabled": false,
   "autoMemoryEnabled": false,
   "skipDangerousModePermissionPrompt": true,
   "theme": "dark-daltonized",
