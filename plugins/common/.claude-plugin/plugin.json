@@ -1,6 +1,6 @@
 {
   "name": "common",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "個人用の共通プラグイン。OTelのコスト/トークン利用状況を分析するスキルと、general-purposeサブエージェントをブロックするhookを含む。",
   "author": {
     "name": "nsu"

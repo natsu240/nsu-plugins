@@ -63,11 +63,15 @@ duckdbが無ければインストールし、`~/.duckdbrc`に`otel_raw`viewが�
 | 「レートの消費内訳/コスト内訳見せて」(デフォルト) | `scripts/cost_by_query_source.sql` |
 | モデル別に見たい | `scripts/cost_by_model.sql` |
 | 日別の推移が見たい | `scripts/cost_by_day.sql` |
-| セッション/プロジェクト別に見たい(`session.id`を`~/.claude/projects/`のディレクトリと突き合わせる) | `scripts/cost_by_session.sql` |
+| セッション別に見たい | `scripts/cost_by_session.sql` |
+| プロジェクト別に見たい(`session.id`を`~/.claude/projects/`のディレクトリと突き合わせる) | `scripts/cost_by_project.sql` |
 | 無駄検知①: 出力小・キャッシュ読込大のイベントを探す(記事の実例: 出力10〜30トークンなのにcache_read_tokensが8万〜10万) | `scripts/waste_cache_heavy.sql` → 該当が多ければ `scripts/waste_cache_heavy_ratio.sql` で全体に占める割合も出す |
 | 無駄検知②: 特定のquery_source(プラグイン等)が想定外に多く呼ばれていないか | `scripts/cost_by_query_source.sql` の回数列を見て、`agent:custom`等が想定より多い/コストが高いプラグインが会話ターンのたびに裏で追加API呼び出しをしていないか疑う(記事の「セキュリティプラグインが原因だったケース」と同じパターン) |
+| `agent:custom`/`agent:builtin:*`の中身(具体的にどのプラグイン・スキル・組み込みエージェントが起動したか)を特定したい | `scripts/cost_by_agent_type.sql`(`prompt.id`で`claude_code.subagent_completed`と突き合わせ、`agent_type`列で実体を特定する) |
+| 作業内容を振り返りたい(いつ何を頼んだか) | `scripts/work_timeline.sql`(`claude_code.user_prompt`の本文を時系列表示。指示文がそのまま出るので機密情報の混入に注意) |
+| 作業パターンを振り返りたい(どのツールをどれだけ/どのくらいの時間/どのくらいの失敗率で使っているか) | `scripts/tool_usage_pattern.sql` |
 
-上記でカバーできないリクエスト(振り返り目的で`claude_code.assistant_response`や`prompt.id`を時系列で追う等)は、スキーマ知識セクションを参考にその場でSQLを組み立てて`duckdb -c "..."`で実行する。
+上記でカバーできないリクエストは、スキーマ知識セクションを参考にその場でSQLを組み立てて`duckdb -c "..."`で実行する。
 
 ## 結果の見せ方
 
