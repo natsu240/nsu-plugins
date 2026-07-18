@@ -7,12 +7,11 @@
 - **直コミットでOK**。個人リポジトリなのでブランチ・PRは不要、`main`に直接コミットする。
 - **コミットしたら必ずGitHub Tagリリースを切る。** コミットして終わりにしない。手順:
   1. `.claude-plugin/plugin.json` の `version` をsemverで更新する(機能追加・修正内容に応じてpatch/minorを判断。破壊的変更はmajor)
-  2. コミットを作成する
-  3. `git tag vX.Y.Z`(plugin.jsonのversionと一致させる)
-  4. `git push origin main --tags`
-  5. `gh release create vX.Y.Z --generate-notes`
+  2. コミットを作成する(version bumpも同じコミットに含めてよい)
+  3. `claude plugin tag --push` でタグを作成・push([公式CLI](https://code.claude.com/docs/en/plugin-dependencies#tag-plugin-releases-for-version-resolution)。tag名は`plugin.json`の`name`と`version`から自動導出され、`{plugin-name}--v{version}`形式になる。plugin.jsonとmarketplace.jsonのversion不一致・作業ツリーの汚れ・タグ重複は自動でエラーになる)
+  4. `gh release create <tag名> --generate-notes`(tag名は手順3の出力に表示される。例: `nsu-claude-toolkit--v1.0.0`)
 
-version bumpとtagは同じコミットに含めてよい(plugin.jsonの変更もそのコミットに含める)。
+`git tag`を手で打たないこと。バージョン解決の対象になるタグ命名規則(`{plugin-name}--v{version}`)を守るため必ず`claude plugin tag`を使う。
 
 ## 構成メモ
 

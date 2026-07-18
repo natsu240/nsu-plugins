@@ -21,7 +21,7 @@
 └── install.sh               # dotfiles/ を ~/.claude/ に反映するスクリプト
 ```
 
-**なぜ分かれているか**: Claude Codeのプラグインは `commands/` `agents/` `skills/` `hooks/` `.mcp.json` しか自動配布できない。`settings.json`の中身(env変数・テーマ・permissions等)や`statusLine`設定はプラグインの仕組みの対象外なので、`dotfiles/` + `install.sh` で別途反映する。
+**なぜ分かれているか**: Claude Codeのプラグインはskills/agents/hooks/MCP/LSP/output-styles/themes/monitors/binに加えて、プラグイン直下に`settings.json`を置いて既定値を配ることもできる。ただし現状そこで指定できるのは`agent`(デフォルトサブエージェント)と`subagentStatusLine`の2キーのみで、env変数・`permissions`・メインの`statusLine`・テーマなどは対象外([公式リファレンス](https://code.claude.com/docs/en/plugins-reference#file-locations-reference)参照)。そのため今回のenv変数・`permissions.defaultMode`・メインの`statusLine`・テーマ等は`dotfiles/` + `install.sh` で別途`~/.claude/settings.json`に反映する。
 
 ## 入れ方
 
