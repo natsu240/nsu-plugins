@@ -7,18 +7,21 @@
 ```
 .
 ├── .claude-plugin/
-│   ├── plugin.json        # プラグイン本体のマニフェスト
-│   └── marketplace.json   # 自分専用マーケットプレイス定義
-├── hooks/
-│   ├── hooks.json         # general-purposeサブエージェントをブロックするhook設定
-│   └── scripts/
-│       └── block-general-purpose.py
-├── skills/
-│   └── otel-analysis/     # Claude Code自身のOTelログ(コスト/トークン)をDuckDBで分析するスキル
-├── dotfiles/               # プラグインでは配布できない個人設定
-│   ├── settings.json       # ~/.claude/settings.json にマージする内容
-│   └── statusline.py       # ~/.claude/statusline.py
-└── install.sh               # dotfiles/ を ~/.claude/ に反映するスクリプト
+│   └── marketplace.json           # マーケットプレイス定義(name/owner/plugins一覧)
+├── plugins/
+│   └── nsu-claude-toolkit/        # プラグイン本体(複数プラグインを置く場合はここに追加していく)
+│       ├── .claude-plugin/
+│       │   └── plugin.json        # プラグインのマニフェスト
+│       ├── hooks/
+│       │   ├── hooks.json         # general-purposeサブエージェントをブロックするhook設定
+│       │   └── scripts/
+│       │       └── block-general-purpose.py
+│       └── skills/
+│           └── otel-analysis/     # Claude Code自身のOTelログ(コスト/トークン)をDuckDBで分析するスキル
+├── dotfiles/                       # プラグインでは配布できない個人設定
+│   ├── settings.json               # ~/.claude/settings.json にマージする内容
+│   └── statusline.py               # ~/.claude/statusline.py
+└── install.sh                       # dotfiles/ を ~/.claude/ に反映するスクリプト
 ```
 
 **なぜ分かれているか**: Claude Codeのプラグインはskills/agents/hooks/MCP/LSP/output-styles/themes/monitors/binに加えて、プラグイン直下に`settings.json`を置いて既定値を配ることもできる。ただし現状そこで指定できるのは`agent`(デフォルトサブエージェント)と`subagentStatusLine`の2キーのみで、env変数・`permissions`・メインの`statusLine`・テーマなどは対象外([公式リファレンス](https://code.claude.com/docs/en/plugins-reference#file-locations-reference)参照)。そのため今回のenv変数・`permissions.defaultMode`・メインの`statusLine`・テーマ等は`dotfiles/` + `install.sh` で別途`~/.claude/settings.json`に反映する。
