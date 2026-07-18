@@ -17,7 +17,7 @@ context: fork
 bash ~/.claude/skills/otel-analysis/scripts/check_env.sh
 ```
 
-duckdbが無ければインストールし、`~/.duckdbrc`に`otel_raw`viewが無ければ(見つかったログパスに合わせて)作成する。ログパスは環境によって`~/.claude/otel/output/logs.jsonl`か`~/.claude/otel/logs.jsonl`のどちらか(docker-composeのvolumeマウント先次第)。
+duckdbが無ければインストールし、`~/.duckdbrc`に`otel_raw`viewが無ければ(見つかったログパスに合わせて)作成する。ログパスは環境によって`~/.claude/otel/output/logs.jsonl`か`~/.claude/otel/logs.jsonl`のどちらか(compose.yamlのvolumeマウント先次第)。
 
 ## スキーマ知識(クエリを組み立てる時の参考)
 

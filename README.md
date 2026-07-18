@@ -54,7 +54,7 @@ Claude Code内で:
 
 ## otel-analysisスキルについて
 
-`~/.claude/otel/` 配下にOTel Collector(docker-compose)経由でログが出力されている前提で動く。Collector自体のセットアップ(collector-config.yaml・docker-compose.yml)はこのrepoには含めていない。参考: [Claude CodeにOTelログを導入して、トークン消費・コストを可視化する](https://zenn.dev/nakashimaharuto/articles/claude-code-otel-logging-guide)
+`~/.claude/otel/` 配下にOTel Collector(Docker Compose)経由でログが出力されている前提で動く。Collector自体のセットアップ(collector-config.yaml・compose.yaml)はこのrepoには含めていない。参考: [Claude CodeにOTelログを導入して、トークン消費・コストを可視化する](https://zenn.dev/nakashimaharuto/articles/claude-code-otel-logging-guide)
 
 ## ライセンス
 

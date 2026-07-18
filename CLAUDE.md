@@ -8,8 +8,9 @@
 - **コミットしたら必ずGitHub Tagリリースを切る。** コミットして終わりにしない。手順:
   1. 該当プラグインの `plugins/<plugin-name>/.claude-plugin/plugin.json` の `version` をsemverで更新する(機能追加・修正内容に応じてpatch/minorを判断。破壊的変更はmajor)
   2. コミットを作成する(version bumpも同じコミットに含めてよい)
-  3. `claude plugin tag --push` を該当プラグインディレクトリ(`plugins/<plugin-name>/`)から実行してタグを作成・push
-  4. `gh release create <tag名> --generate-notes`(tag名は手順3の出力に表示される。例: `common--v1.1.0`)
+  3. `git push origin main` でmainブランチ自体をpushする(`claude plugin tag --push`はタグしかpushしないので、これを飛ばすとタグ・Releaseだけ進んでmainが取り残される)
+  4. `claude plugin tag --push` を該当プラグインディレクトリ(`plugins/<plugin-name>/`)から実行してタグを作成・push
+  5. `gh release create <tag名> --generate-notes`(tag名は手順4の出力に表示される。例: `common--v1.1.0`)
 
 複数プラグインをこのrepoに追加した場合、プラグインごとに独立してバージョン管理・タグ付けする(`plugins/<name>/`ディレクトリ単位で`claude plugin tag`を実行)。
 
